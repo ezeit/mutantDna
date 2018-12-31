@@ -30,7 +30,7 @@ Error: Estructura inválida, solo se aceptan matrices cuadradas
 ```
 
 ### Test Unitarios
-Dentro del archivo [mutantDna.test.js]() se encuentran algunos tests unitarios que prueban la funcionalidad del programa, dentro del mismo se pueden agregar los que sean necesarios
+Dentro del archivo `mutantDna.test.js` se encuentran algunos tests unitarios que prueban la funcionalidad del programa, dentro del mismo se pueden agregar los que sean necesarios
 
 Para ejecutar dichos tests, en una consola:
 ```sh
@@ -39,4 +39,4 @@ $  npm run test
 
 ## Proyecto en Google Firebase
 
-
+![alt text](https://drive.google.com/file/d/1pQkhL0RAoCCfPwFuDvzSbcYNM_4wGum2/view?usp=sharing)
