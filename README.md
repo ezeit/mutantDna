@@ -16,7 +16,7 @@ $ node app.js [ARGUMENTOS]
 ```
 Ejemplo:
 ```sh
-$ node app.js "ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"
+$ node app.js "ATGCGA" "CAGTGC" "TTATGT" "AGAAGG" "CCCCTA" "TCACTG"
 ```
 El programa devolverá si el ADN ingresado corresponde a un Mutante o no
 ```sh
