@@ -9,16 +9,12 @@ const checkHorizontalMatches = (dna) => {
 
 const checkVerticalMatches = (dna) => {
     let transposedDNA = matrix.traspose(dna);
-    // console.log("TRANSPOSED", transposedDNA);
     return checkHorizontalMatches(transposedDNA);
 }
 
 const checkObliqueMatches = (dna) => {
     let leftToRightObliqueElements = matrix.obliqueElements(dna);
     let rightToLeftObliqueElements = matrix.obliqueElements(matrix.mirror(dna));
-    // console.log("TOP OBLIQUE", leftToRightObliqueElements);
-    // console.log("BOTTOM OBLIQUE", rightToLeftObliqueElements);
-    // console.log("JOIN OBLIQUE", [...leftToRightObliqueElements, ...rightToLeftObliqueElements]);
     return checkHorizontalMatches([...leftToRightObliqueElements, ...rightToLeftObliqueElements]);
 }
 

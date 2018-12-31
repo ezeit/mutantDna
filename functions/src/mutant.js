@@ -1,7 +1,6 @@
 const dnaHelper = require('./dna');
 
 module.exports.isMutant = (dna) => {
-    // console.log("DNA", dna);
     if (!dnaHelper.validateStructure(dna))
         throw new Error("Estructura inválida, solo se aceptan matrices cuadradas");
 

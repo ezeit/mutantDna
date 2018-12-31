@@ -24,7 +24,7 @@ module.exports.obliqueElements = (matrix) => {
 		}
 		obliqueArray.push(obliqueElements.join(""));
 	}
-	//Get the rest
+
 	for(col = 1; col < matrix.length; col ++){
 		obliqueElements = [];
 		for(x = matrix.length -1, y = col; y < matrix.length; x--, y++){
