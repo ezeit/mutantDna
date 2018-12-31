@@ -43,3 +43,7 @@ $  npm run test
 Se eligió Google Firebase para exponer 2 servicios mediante Web Api, con tecnología server less.
 - /mutant : Servicio que a través de un método POST con un body del tipo { "dna": "[CHAIN DNA]" } devuelve 200 OK si el adn corresponde a un mutante, o 403 Forbidden de lo contrario
 - /stats : Servicio que a través de un método GET, devuelve las estadísticas de los adns analizados
+
+### Endpoints
+ - [POST] https://us-central1-mutantdna.cloudfunctions.net/mutant
+ - [GET] https://us-central1-mutantdna.cloudfunctions.net/stats
