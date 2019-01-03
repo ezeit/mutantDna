@@ -1,5 +1,6 @@
 const matrix = require('./matrix');
 const DNAMutantMatch = /([ATGC])\1{3}/;
+const allowedInputCharsMatch = /^[ATCG]+$/;
 
 const checkHorizontalMatches = (dna) => {
     return dna.filter((row) => {
@@ -28,11 +29,13 @@ module.exports.checkObliqueMatches = (dna) => {
     return checkObliqueMatches(dna);
 }
 
-module.exports.validateStructure = (dna) => {
+module.exports.validateInput = (dna) => {
     if (!Array.isArray(dna))
         return false;
     for (let i = 0; i < dna.length; i++) {
         if (dna[i].length !== dna.length)
+            return false;
+        else if(!allowedInputCharsMatch.test(dna[i]))
             return false;
     }
     return true;

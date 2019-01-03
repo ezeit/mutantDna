@@ -20,5 +20,3 @@ test('Human DNA', () => {
     expect(mutant.isMutant(dna)).toEqual(false);
 });
 
-
-
