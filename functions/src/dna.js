@@ -1,22 +1,38 @@
 const matrix = require('./matrix');
-const DNAMutantMatch = /([ATGC])\1{3}/;
+const DNAMutantMatch = /([ATGC])\1{3,}/g;
 const allowedInputCharsMatch = /^[ATCG]+$/;
 
+
+const findMatches = (dnaRow) => {
+    let coincidences = [];
+    let match;
+    while ((match = DNAMutantMatch.exec(dnaRow)) !== null) {
+        coincidences.push(match[0]);
+    }
+    const size = coincidences.length;
+    if (size < 1)
+        return 0
+    else if (size === 1)
+        return coincidences[0].length - 3;
+    else
+        return coincidences.reduce((previous, current) => { return previous + (current.length - 3) }, 0);
+}
+
+
 const checkHorizontalMatches = (dna) => {
-    return dna.filter((row) => {
-        return DNAMutantMatch.test(row);
-    });
+    return dna.reduce((previous, current) => { return previous + findMatches(current) }, 0);
 }
 
 const checkVerticalMatches = (dna) => {
-    let transposedDNA = matrix.traspose(dna);
+    const transposedDNA = matrix.traspose(dna);
     return checkHorizontalMatches(transposedDNA);
 }
 
 const checkObliqueMatches = (dna) => {
-    let leftToRightObliqueElements = matrix.obliqueElements(dna);
-    let rightToLeftObliqueElements = matrix.obliqueElements(matrix.mirror(dna));
-    return checkHorizontalMatches([...leftToRightObliqueElements, ...rightToLeftObliqueElements]);
+    const bottomLeftToUpperRightElements = matrix.obliqueElements(dna);
+    const bottomRightToUpperLeftElements = matrix.obliqueElements(matrix.mirror(dna));
+
+    return checkHorizontalMatches([...bottomLeftToUpperRightElements, ...bottomRightToUpperLeftElements]);
 }
 
 module.exports.checkHorizontalMatches = (dna) => {
